@@ -110,7 +110,7 @@ export const App: React.FC = () => {
         )}
       </div>
 
-      <ul>
+      <div>
         <ul>
           {getReorderedGoods(goodsFromServer, { sortType, isReversed }).map(
             (good, index) => (
@@ -120,7 +120,7 @@ export const App: React.FC = () => {
             ),
           )}
         </ul>
-      </ul>
+      </div>
     </div>
   );
 };

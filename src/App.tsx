@@ -33,17 +33,19 @@ export function getReorderedGoods(
 ) {
   const visibleGoods = [...goods];
 
-  switch (sortType) {
-    case SortType.ALPHABET:
-      visibleGoods.sort();
-      break;
-    case SortType.LENGTH:
-      visibleGoods.sort((a, b) => {
-        return a.length - b.length;
-      });
-      break;
-    default:
-      break;
+  try {
+    switch (sortType) {
+      case SortType.ALPHABET:
+        visibleGoods.sort();
+        break;
+      case SortType.LENGTH:
+        visibleGoods.sort((a, b) => {
+          return a.length - b.length;
+        });
+        break;
+    }
+  } catch(e){
+      throw e
   }
 
   if (isReversed) {
@@ -57,13 +59,13 @@ export const App: React.FC = () => {
   const [isReversed, setReversed] = React.useState(false);
   const [sortType, setSortType] = React.useState(SortType.NONE);
 
-  const alphabetLight = classNames({
+  const alphabetLight = classNames('button is-info', {
     'is-light': sortType !== SortType.ALPHABET,
   });
-  const lengthLight = classNames({
+  const lengthLight = classNames('button is-info', {
     'is-light': sortType !== SortType.LENGTH,
   });
-  const reverseLight = classNames({
+  const reverseLight = classNames('button is-info', {
     'is-light': !isReversed,
   });
 

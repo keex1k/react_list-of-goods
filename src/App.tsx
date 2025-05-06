@@ -44,8 +44,8 @@ export function getReorderedGoods(
         });
         break;
     }
-  } catch(e){
-      throw e
+  } catch (e) {
+    throw e;
   }
 
   if (isReversed) {
